@@ -374,7 +374,7 @@ func applyTransactionWithResult(msg *Message, config *params.ChainConfig, bc Cha
 	receipt.GasUsed = result.UsedGas
 
 	// Set the receipt logs and create the bloom filter.
-	receipt.Logs = statedb.GetLogs(tx.Hash(), header.Number.Uint64(), header.Hash())
+	receipt.Logs = statedb.GetLogs(tx.Hash(), header.Number.Uint64(), header.Hash(), header.Time)
 	receipt.BlockHash = header.Hash()
 	receipt.BlockNumber = header.Number
 	receipt.TransactionIndex = uint(statedb.TxIndex())
